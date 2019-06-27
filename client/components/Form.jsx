@@ -14,15 +14,8 @@ class Form extends Component {
   render() {
     return (
       <React.Fragment>
-        <form method="post" action="/csv">
-          <textarea
-            onChange={this.handleChange}
-            value={this.state.val}
-            rows="20"
-            cols="60"
-            name="data"
-            placeholder="json data"
-          />
+        <form method="post" action="/csv" encType="multipart/form-data">
+          <input type="file" name="data" />
           <button
             style={{ display: 'block', textAlign: 'center' }}
             type="submit"

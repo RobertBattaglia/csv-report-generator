@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = (req, res) => {
   try {
-    var jsonData = JSON.parse(req.body.data);
+    var jsonData = JSON.parse(req.file.buffer.toString());
     var columns = Object.keys(jsonData[0]);
     var csvData = columns.join(',') + '\n';
     jsonData.map(obj => {

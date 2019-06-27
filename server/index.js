@@ -1,14 +1,13 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
+var multer = require('multer');
 const generateCSV = require('./controllers.js');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../dist')));
 
-app.post('/csv', (req, res) => {
+app.post('/csv', multer().single('data'), (req, res) => {
   generateCSV(req, res);
 });
 
