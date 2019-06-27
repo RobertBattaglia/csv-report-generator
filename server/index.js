@@ -9,8 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '../dist')));
 
 app.post('/csv', (req, res) => {
-  generateCSV(req);
-  res.redirect('/');
+  generateCSV(req, res);
 });
 
 const port = 3000;

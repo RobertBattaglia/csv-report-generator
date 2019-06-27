@@ -15,10 +15,11 @@ class Form extends Component {
     return (
       <React.Fragment>
         <form method="post" action="/csv">
-          <input
+          <textarea
             onChange={this.handleChange}
             value={this.state.val}
-            type="text"
+            rows="20"
+            cols="60"
             name="data"
             placeholder="json data"
           />
